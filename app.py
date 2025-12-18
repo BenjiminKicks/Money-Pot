@@ -8,6 +8,38 @@ from datetime import datetime
 app = Flask(__name__)
 
 
+# Configure database SQL
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+db = SQLAlchemy(app)
+
+
+
+
+# Data Class - Row of data
+
+class GroceryItem(db.Model):
+    id = db.Column(db.Float, primary_key=True)
+    amount = db.Column(db.Integer, default=0)
+    category = db.Column(db.String(20))
+    shopper = db.Column(db.String(20))
+    time = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+    def __repr__(self):
+        return f"item {self.id}"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
