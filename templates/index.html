@@ -8,5 +8,51 @@
 
 
 {% block body %}
-<h1> Welcome to Money-Pot </h1>
+<div class="content">
+    <h1> Money-P </h1>
+
+    {% if items | length == 0 %}
+    <h3> No purchases yet. </h3>
+    {% else %}
+    <table>
+        <thead></thead>
+          <tr>
+            <th> Amount </th>
+            <th> Category </th>
+            <th> Shopper </th>
+            <th> Time </th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>${{ item.amount }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.shopper }}</td>
+                <td>{{ item.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <form action="/" method="POST">
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" id="amount" min="0" step="1" required>
+
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            <option value="meat">Meat</option>
+            <option value="dairy">Dairy</option>
+            <option value="produce">Produce</option>
+            <option value="snackes">Snackes</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="shopper">Shopper</label>
+        <input type="text" name="shopper" id="shopper" maxlength="20" reguired>
+
+        <button type="submit">Add Purchase</button>
+    </form>
+    
+</div>
 {% endblock %}
