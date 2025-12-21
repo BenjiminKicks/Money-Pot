@@ -30,6 +30,14 @@
                 <td>{{ item.category }}</td>
                 <td>{{ item.shopper }}</td>
                 <td>{{ item.time }}</td>
+                <td>
+                    <a href="/delete/{{item.id}}">Delete</a>
+                    <br/>
+                    <a href="/edit/{{item.id}}">Edit</a>
+
+
+                </td>
+
             </tr>
             {% endfor %}
         </tbody>

@@ -58,6 +58,40 @@ def index():
         items = GroceryItem.query.order_by(GroceryItem.time).all()
         return render_template("index.html", items=items)
     
+
+
+
+
+
+# Delete an Item
+@app.route("/delete/<int:id>")
+def delete(id:int):
+    delete_item = GroceryItem.query.get_or_404(id)
+    try:
+        db.session.delete(delete_item)
+        db.session.commit()
+        return redirect("/")
+    except Exception as e:
+        return f"ERROR: {e}"
+    
+
+
+
+
+
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+def edit(id:int):
+    edit_item = GroceryItem.query.get_or_404(id)
+    if request.method == "POST":
+        edit_item.amount = request.form['func'] 
+        try:
+            db.session.commit()
+            return redirect("/")
+        except Exception as e:
+            return f"ERROR: {e}"
+    else:
+        return render_template('edit.html', edit_item=edit_item)
+    
     
 
 
@@ -77,5 +111,5 @@ def index():
 
 if __name__ in "__main__":
     with app.app_context():
-        db.create_all
+        db.create_all()
     app.run(debug=True)
