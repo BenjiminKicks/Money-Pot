@@ -1,8 +1,189 @@
-
-/* Web pages main layout */
 body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
-    background-color:#FAFAFA;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+    margin: 0;
+    background: #fafafa;
+    color: 111827;
+}
+
+
+/* Dashboard shell */
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+
+.sidebar {
+  background: #0b0f14;
+  color: #e5e7eb;
+  padding: 20px;
+}
+
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+.nav {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-link {
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(265, 255, 255. 0.88);
+  opacity: 1;
+}
+
+
+.main {
+  padding: 24px;
+}
+
+
+.content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+}
+
+
+/* Stat cards row */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
+}
+
+
+.stat-card--budget {
+  border-color: rgba(59, 103, 246, 0.35);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35),
+              0 10px 30px rgba(59, 130, 246, 0.15);
+}
+
+
+.stat-card--spent {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.45),
+              0 10px 30px rgba(16, 185, 129, 0.18);
+}
+
+
+.stat-card--remaining {
+  border-color: rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.45),
+              0 10px 30px rgba(16, 185, 129, 0.18);
+}
+
+
+.stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+
+
+
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 60px 20px rgba(17, 24, 39, 0.06);
+}
+
+
+thead th {
+  text-align: left;
+  font-size: 12px;
+  color: #6b7288;
+  padding: 12px 14px;
+  background: #fbfbfc;
+  border-bottom: 1px solid #eef2f7
+}
+
+
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+tbody tr {
+  border-bottom: none;
+}
+
+
+/* Forms */
+form {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+  max-width: 420px;
+}
+
+input, select, button {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+}
+
+
+button {
+  cursor: pointer;
+  border: none;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 092;
 }

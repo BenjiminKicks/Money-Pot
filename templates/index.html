@@ -8,90 +8,106 @@
 
 
 {% block body %}
-<div class="content">
-    <h1> Money-P </h1>
+<div class="app">
 
-    <!-- Budget summary-->
-    {% if weekly_budget == 0 %}
-      <h3>Add a weekly budget</h3>
-    {% endif %}
+  <aside class="sidebar">
+    <div class="brand">Money-P</div>
+    <nav class="nav">
+      <a class="nav-link active" href="/">Dashboard</a>
+      <a class="nav-link" href="#">Purchases</a>
+      <a class="nav-link" href="#">Smart Lookup</a>
+      <a class="nav-link" href="#">Settings</a>
+    </nav>
+  </aside>
 
-    <table>
-        <thead>
+  <main class="main">
+    <div class="content">
+      <h1>Money-P</h1>
+
+      {% if weekly_budget == 0 %}
+        <h3>Add a weekly budget</h3>
+      {% endif %}
+
+      <!-- Stat cards (NOT a table) -->
+      <div class="stats">
+        <div class="stat-card stat-card--budget">
+          <div class="stat-label">Weekly Budget</div>
+          <div class="stat-value">${{ weekly_budget }}</div>
+        </div>
+
+        <div class="stat-card stat-card--spent">
+          <div class="stat-label">Spent This Week</div>
+          <div class="stat-value">${{ spent }}</div>
+        </div>
+
+        <div class="stat-card stat-card--remaining">
+          <div class="stat-label">Remaining</div>
+          <div class="stat-value">${{ remaining }}</div>
+        </div>
+      </div>
+
+      <!-- Purchases table -->
+      {% if items|length == 0 %}
+        <h3>No purchases yet.</h3>
+      {% else %}
+        <table>
+          <thead>
             <tr>
-                <th>Weekly Budget</th>
-                <th>Spent This Week</th>
-                <th>Remaining</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Shopper</th>
+              <th>Time</th>
+              <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ weekly_budget }}</td>
-                <td>{{ spent }}</td>
-                <td>{{ remaining }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Purchases table -->
-    {% if items | length == 0 %}
-    <h3>No purchases yet.</h3>
-    {% else %}
-    <table>
-        <thead>
-          <tr>
-            <th> Amount </th>
-            <th> Category </th>
-            <th> Shopper </th>
-            <th> Time </th>
-          </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             {% for item in items %}
-            <tr>
+              <tr>
                 <td>${{ item.amount }}</td>
                 <td>{{ item.category }}</td>
                 <td>{{ item.shopper }}</td>
                 <td>{{ item.time }}</td>
                 <td>
-                    <a href="/delete/{{item.id}}">Delete</a>
-                    <br/>
-                    <a href="/edit/{{item.id}}">Edit</a>
-
-
+                  <a href="/delete/{{ item.id }}">Delete</a><br/>
+                  <a href="/edit/{{ item.id }}">Edit</a>
                 </td>
-            </tr>
+              </tr>
             {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+          </tbody>
+        </table>
+      {% endif %}
 
-    <!-- Add purchase form -->
-    <form action="/" method="POST">
+      <!-- Add purchase form -->
+      <form action="/" method="POST">
         <label for="amount">Amount</label>
         <input type="number" name="amount" id="amount" min="0" step="1" required>
 
         <label for="category">Category</label>
         <select name="category" id="category" required>
-            <option value="meat">Meat</option>
-            <option value="dairy">Dairy</option>
-            <option value="produce">Produce</option>
-            <option value="snackes">Snackes</option>
-            <option value="other">Other</option>
+          <option value="" selected disabled>Choose a category</option>
+          <option value="meat">Meat</option>
+          <option value="dairy">Dairy</option>
+          <option value="produce">Produce</option>
+          <option value="snacks">Snacks</option>
+          <option value="other">Other</option>
         </select>
 
         <label for="shopper">Shopper</label>
-        <input type="text" name="shopper" id="shopper" maxlength="20" reguired>
+        <input type="text" name="shopper" id="shopper" maxlength="20" required>
 
         <button type="submit">Add Purchase</button>
-    </form>
+      </form>
 
-    <!-- Set weekly budget form -->
-    <form action="/budget" method="POST">
-        <label for="/budget" method="POST"></label>
+      <!-- Set weekly budget form -->
+      <form action="/budget" method="POST">
+        <label for="budget">Weekly Budget</label>
         <input type="number" name="budget" id="budget" min="0" step="1" required>
         <button type="submit">Set Weekly Budget</button>
-    </form>
-    
+      </form>
+
+    </div>
+  </main>
+
 </div>
 {% endblock %}
+
