@@ -151,6 +151,31 @@ def edit(id:int):
 
 
 
+@app.route("/lookup", methods=["GET", "POST"])
+def smart_look():
+    if request.method == "POST":
+        return render_template('look_up.html')
+    else:
+        return render_template('look_up.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ in "__main__":
     with app.app_context():
         db.create_all()
