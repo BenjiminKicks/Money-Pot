@@ -162,6 +162,9 @@ def smart_look():
 
 
 
+@app.route("/test-api")
+def test_api():
+    return "Test API works"
 
 
 
