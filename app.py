@@ -167,6 +167,8 @@ def smart_look():
 
 @app.route("/test-api")
 def test_api():
+    # test http call = http://127.0.0.1:5000/test-api
+
     barcode = "737628064502"
 
     url = f"https://world.openfoodfacts.org/api/v2/product/{barcode}.json"
@@ -174,7 +176,17 @@ def test_api():
     response = requests.get(url)
 
     print(response.status_code)
-    print(response.text)
+    data = response.json()
+    print(data.keys())
+
+
+    if data.get("status") == 1:
+        product = data.get("product", {})
+        name = product.get("product_name", "No name found")
+        print("Product name:", name)
+    else:
+        print("Product not found")    
+
     
     
     return "Check the terminal for API response"
