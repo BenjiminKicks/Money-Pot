@@ -164,27 +164,47 @@ def smart_look():
 @app.route("/lookup", methods=["POST"])
 def smart_look_post():
     
-    barcode = "737628064502"
+    barcode = request.form["barcode"].strip()
 
     url = f"https://world.openfoodfacts.org/api/v2/product/{barcode}.json"
-
-    response = requests.get(url)
-
-    print(response.status_code)
+    response = requests.get(url, timeout=10)
     data = response.json()
-    print(data.keys())
 
+    result = None
 
     if data.get("status") == 1:
         product = data.get("product", {})
-        name = product.get("product_name", "No name found")
-        result = {"name": name}
+        name = product.get("product_name", "N/A")
+        brand = product.get("brands", "N/A") 
+        category = product.get("categories", "N/A")
+        nutriments = product.get("nutriments", {})
+        calories = nutriments.get("energy-kcal_100g", "N/A")
+        sugar = nutriments.get("sugars_100g", "N/A")
+        protein = nutriments.get("proteins_100g", "N/A")
+        
+        result = {"name": name, "brand": brand, "category": category,
+                   "calories": calories, "sugar": sugar, "protein": protein}
+        
+
+
     else:
-        print("Product not found")    
+        result = {"error":"Product not found"}    
 
     
-    
     return render_template("look_up.html", result=result)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -216,13 +236,6 @@ def test_api():
     
     
     return "Check the terminal for API response"
-
-
-
-
-
-
-
 
 
 

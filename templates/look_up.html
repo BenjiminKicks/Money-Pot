@@ -6,7 +6,7 @@
 <title>Money-Pot Smart look up</title>
 {% endblock %}
 
-
+<pre>{{ result }}</pre>
 {% block body %}
 
 <div class="content">
@@ -27,6 +27,14 @@
     {% else %}
       <h3>Result</h3>
       <p><strong>Name:</strong> {{ result.name }}</p>
+      <p><strong>Brand:</strong> {{ result.brand }}</p>
+      <p><strong>Category:</strong> {{ result.category }}</p>
+
+      <hr>
+
+      <p><strong>Calories:</strong> {{ result.calories }} kcal / 100g</p>
+      <p><strong>Sugar:</strong> {{ result.sugar }} g / 100g</p>
+      <p><strong>Protein:</strong> {{ result.protein }} g / 100g</p>
     {% endif %}  
   </div>
 {% endif %}  
