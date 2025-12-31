@@ -167,10 +167,12 @@ def smart_look_post():
     barcode = request.form["barcode"].strip()
 
     url = f"https://world.openfoodfacts.org/api/v2/product/{barcode}.json"
-    response = requests.get(url, timeout=10)
+    response = requests.get(url, timeout=25)
     data = response.json()
 
     result = None
+
+    # API test results
     print("RAW BARCODE:", repr(barcode))
     print("URL:", url)
     print("OFF HTTP:", response.status_code)
@@ -191,7 +193,6 @@ def smart_look_post():
                    "calories": calories, "sugar": sugar, "protein": protein}
         
 
-
     else:
         result = {"error":"Product not found"}  
 
@@ -200,6 +201,68 @@ def smart_look_post():
 
 
 
+
+@app.route("/lookup/name")
+def lookup_name():
+    return render_template("lookup_name.html")
+
+
+
+
+
+
+
+@app.route("/lookup/name", methods=["POST"])
+def lookup_name_post():
+
+
+    name = request.form["brand_name"].strip()
+
+    url = "https://world.openfoodfacts.org/cgi/search.pl"
+    params = {
+        "search_terms": name,
+        "search_simple": 1,
+        "action": "process",
+        "json": 1,
+        "page_size": 5
+    }
+
+    response = requests.get(url, params=params, timeout=10)
+    data = response.json()
+
+    try:
+        response = requests.get(url, params=params, timeout=25)
+    except:
+        return render_template("lookup_name.html", result={"error": "Open Food Facts timed out. Try again"})
+ 
+    # API test results
+    print("RAW QUERY:", repr(name))
+    print("OFF HTTP:", response.status_code)
+    print("NUM PRODUCTS:", len(data.get("products", [])))
+
+
+    products = data.get("products", [])
+
+    if products:
+        product = products[0]
+
+        name = product.get("product_name", "N/A")
+        brand = product.get("brands", "N/A") 
+        category = product.get("categories", "N/A")
+        nutriments = product.get("nutriments", {})
+        calories = nutriments.get("energy-kcal_100g", "N/A")
+        sugar = nutriments.get("sugars_100g", "N/A")
+        protein = nutriments.get("proteins_100g", "N/A")
+        
+        result = {"name": name, "brand": brand, "category": category,
+                   "calories": calories, "sugar": sugar, "protein": protein}
+        
+
+    else:
+        result = {"error":"Product not found"}  
+
+    
+    return render_template("lookup_name.html", result=result)
 
 
 
