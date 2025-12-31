@@ -197,7 +197,7 @@ button:hover {
   margin: 1px;
   border-radius: 20px;
   background-color: #111827;
-  color: #fff;
+  color: #e5e7eb;
   text-decoration: none;
   transition: background-color 0.3s ease;
 
@@ -205,4 +205,17 @@ button:hover {
     background-color: brown;
   }
 
+}
+/* the smartlook output card */
+.card-smart-look {
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  width: 1100px;
+  margin-top: 20px;
+  margin-left: 0px;
+  border-radius: 16px;
+  padding: 16px;
+  border-color: rgba(59, 103, 246, 0.35);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.35),
+              0 10px 30px rgba(59, 130, 246, 0.15);
 }

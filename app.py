@@ -171,6 +171,11 @@ def smart_look_post():
     data = response.json()
 
     result = None
+    print("RAW BARCODE:", repr(barcode))
+    print("URL:", url)
+    print("OFF HTTP:", response.status_code)
+    print("OFF STATUS FIELD:", data.get("status"))
+    print("OFF CODE FIELD:", data.get("code"))
 
     if data.get("status") == 1:
         product = data.get("product", {})
@@ -188,7 +193,7 @@ def smart_look_post():
 
 
     else:
-        result = {"error":"Product not found"}    
+        result = {"error":"Product not found"}  
 
     
     return render_template("look_up.html", result=result)

@@ -9,35 +9,53 @@
 <pre>{{ result }}</pre>
 {% block body %}
 
-<div class="content">
-    <h1> Smart Lookup</h1>
+<div class="app">
 
-    <form action="/lookup" method="POST">
+  <aside class="sidebar">
+    <div class="brand">Money-P</div>
+    <nav class="nav">
+      <a class="nav-link active" href="/">Dashboard</a>
+      <a class="nav-link" href="#">Purchases</a>
+      <a class="nav-link" href="/lookup">Smart Lookup</a>
+      <a class="nav-link" href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="content">
+      <h1>Smart Lookup</h1>
+
+      <form class="lookup-form" action="/lookup" method="POST">
         <label for="barcode">Barcode</label>
-        <input type="text" id="barcode" name="barcode" required>
+        <input type="text" id="barcode" name="barcode"
+               minlength="12" maxlength="13"
+               title="Barcodes must be 12-13 digits"
+               required>
         <button type="submit">Lookup</button>
-    </form>
+      </form>
+
+      {% if result %}
+        <div class="card-smart-look">
+          {% if result.error %}
+            <p>{{ result.error }}</p>
+          {% else %}
+            <h3>Result</h3>
+            <p><strong>Name:</strong> {{ result.name }}</p>
+            <p><strong>Brand:</strong> {{ result.brand }}</p>
+            <p><strong>Category:</strong> {{ result.category }}</p>
+
+            <hr>
+
+            <p><strong>Calories:</strong> {{ result.calories }} kcal / 100g</p>
+            <p><strong>Sugar:</strong> {{ result.sugar }} g / 100g</p>
+            <p><strong>Protein:</strong> {{ result.protein }} g / 100g</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </main>
+
 </div>
 
-
-{% if result %}
-  <div class="card">
-    {% if result.error %}
-      <p>{{ result.error }}</p>
-    {% else %}
-      <h3>Result</h3>
-      <p><strong>Name:</strong> {{ result.name }}</p>
-      <p><strong>Brand:</strong> {{ result.brand }}</p>
-      <p><strong>Category:</strong> {{ result.category }}</p>
-
-      <hr>
-
-      <p><strong>Calories:</strong> {{ result.calories }} kcal / 100g</p>
-      <p><strong>Sugar:</strong> {{ result.sugar }} g / 100g</p>
-      <p><strong>Protein:</strong> {{ result.protein }} g / 100g</p>
-    {% endif %}  
-  </div>
-{% endif %}  
-
-
 {% endblock %}
+
