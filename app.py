@@ -25,7 +25,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = db_url or "sqlite:///database.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 
-db = SQLAlchemy(app)
 
 
 
