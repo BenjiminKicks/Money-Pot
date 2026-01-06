@@ -13,7 +13,7 @@ This repository represents the MVP (Minimum Viable Product) and ongoing developm
 
 > Early MVP UI (Work in Progress)
 
-![Dashboard](assets/dashboard.png)
+![Dashboard](Screenshot 2026-01-06 at 3.47.47 AM.png)
 ![Budget View](assets/budget.png)
 
 
