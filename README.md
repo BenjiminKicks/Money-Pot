@@ -119,19 +119,20 @@ How product requirements influence backend design
 
 
 <h2>🛠️ Tech Stack</h2>
-Backend
-Python
-Flask
-SQLAlchemy
-SQLite (development)
-Frontend
-HTML
-CSS
-Jinja2 Templates
-Tools
-Git & GitHub
-VS Code
-
+<ul>
+<li>Backend</li>
+<li>Python</li>
+<li>Flask</li>
+<li>SQLAlchemy</li>
+<li>SQLite (development)</li>
+<li>Frontend</li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Jinja2 Templates</li>
+<li>Tools</li>
+<li>Git & GitHub</li>
+<li>VS Code</li>
+</ul>
 
 <h2>🔮 Roadmap</h2>
 User authentication (login & registration)
