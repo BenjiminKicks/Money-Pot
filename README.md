@@ -48,33 +48,33 @@ Help users create a stable, shared grocery budgeting system that promotes financ
   
 <h3>Success Looks Like</h3>
 <ol>
-<ul>Users clearly understand where their grocery money is going</ul>
-<ul>Shared households avoid confusion or conflict over expenses</ul>
-<ul>Users actively reduce unnecessary grocery spending</ul>
-<ul>Users take advantage of deals, coupons, and free food resources</ul>
+<li>Users clearly understand where their grocery money is going</li>
+<li>Shared households avoid confusion or conflict over expenses</li>
+<li>Users actively reduce unnecessary grocery spending</ul>
+<li>Users take advantage of deals, coupons, and free food resources</li>
 </ol>
 
 <h1>✨ Core Features (Planned & In Progress)</h1>
 
-<h2>🧑‍🤝‍🧑 Shared Budgeting</h2>
+<h3>🧑‍🤝‍🧑 Shared Budgeting</h3>
 Create weekly or monthly grocery budgets
 Invite roommates, partners, or family members
 Everyone can add purchases and view shared spending
 
-<h2>🧾 User Accountability</h2>
+<h3>🧾 User Accountability</h3>
 Track who made each purchase
 See when money was spent
 Understand how each purchase impacts the shared budget
 Encourages transparency and teamwork
 
-<h2>🛒 Grocery Deals & Coupons</h2>
+<h3>🛒 Grocery Deals & Coupons</h3>
 Integration with external APIs for:
 Store deals
 Coupons
 Discounts and promotions
 Helps users save money before they shop
 
-<h2>🥗 Free Food Resources</h2>
+<h3>🥗 Free Food Resources</h3>
 A dedicated section for:
 Local food banks
 Free food events
@@ -82,7 +82,7 @@ Community kitchens
 Free grocery programs
 Designed to support low-income and food-insecure users.
 
-<h2>📊 Analytics Dashboard</h2>
+<h3>📊 Analytics Dashboard</h3>
 Weekly and monthly spending summaries
 Category-based spending (produce, meat, snacks, etc.)
 Spending trends over time
