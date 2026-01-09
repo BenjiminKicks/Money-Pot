@@ -77,7 +77,7 @@ Community kitchens
 Free grocery programs
 Designed to support low-income and food-insecure users.
 
-<h2>📊 Analytics Dashboard<h2>
+<h2>📊 Analytics Dashboard</h2>
 Weekly and monthly spending summaries
 Category-based spending (produce, meat, snacks, etc.)
 Spending trends over time
@@ -85,7 +85,7 @@ Spending trends over time
 
 
 
-<h2>🛠️ Current MVP Status<h2>
+<h2>🛠️ Current MVP Status</h2>
 The current MVP focuses on establishing the backend foundation:
 Flask-based web application
 CRUD functionality for budget entries
@@ -97,7 +97,7 @@ Deployed web app for testing real-world behavior
 
 
 
-<h2>⚠️ Known Limitation & Key Learning<>h2
+<h2>⚠️ Known Limitation & Key Learning</h2>
 During deployment, a critical issue was discovered:
 budget data entered by one user was visible to others using the same deployed app.
 This highlighted an important architectural lesson:
@@ -109,7 +109,7 @@ user accounts, authentication, and true shared-budget groups.
 
 
 
-<h2>🧠 What I’ve Learned So Far<h2>
+<h2>🧠 What I’ve Learned So Far</h2>
 How shared data behaves in deployed web applications
 Why authentication is critical for privacy and trust
 How MVPs expose real architectural flaws
@@ -118,7 +118,7 @@ How product requirements influence backend design
 
 
 
-<h2>🛠️ Tech Stack<h2>
+<h2>🛠️ Tech Stack</h2>
 Backend
 Python
 Flask
@@ -133,7 +133,7 @@ Git & GitHub
 VS Code
 
 
-<h2>🔮 Roadmap<h2>
+<h2>🔮 Roadmap</h2>
 User authentication (login & registration)
 True shared-budget groups with multiple users
 Budget invitations & permissions
@@ -143,12 +143,12 @@ Analytics dashboard & visualizations
 Production-ready database
 
 
-<h2>🚧 Project Status<h2>
+<h2>🚧 Project Status</h2>
 Active Development (MVP → V1)
 Money-Pot is under active development and architectural refinement.
 
 
-<h2>📫 Contact<h2>
+<h2>📫 Contact</h2>
 Antoine Gualy
 gualyantoine@gmail.com
 Computer Science Student
