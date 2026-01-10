@@ -84,7 +84,7 @@ body {
   background: #ffffff;
   border: 1px solid #eef2f7;
   border-radius: 16px;
-  padding: 16px;
+  padding: 40px;
   box-shadow: 0 6px 20px rgba(17, 24, 39, 0.06);
 }
 
@@ -111,13 +111,13 @@ body {
 
 
 .stat-label {
-  font-size: 12px;
+  font-size: 16px;
   color: #6b7280;
   margin-bottom: 10px;
 }
 
 .stat-value {
-  font-size: 32px;
+  font-size: 50px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
